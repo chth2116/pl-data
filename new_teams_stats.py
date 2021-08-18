@@ -43,7 +43,7 @@ def update_player_list():
 
         url = "https://api-football-v1.p.rapidapi.com/v3/players"
 
-        querystring = {"team":str(team['team']['id']),"season":"2020"}
+        querystring = {"team":str(team['team']['id']),"season":"2021"}
 
         headers = {
             'x-rapidapi-key': "e7b358e304msh801d4f6823af534p1fe851jsn91d5039ce9cc",
@@ -106,6 +106,8 @@ def update_player_list():
 
         client = MongoClient('mongodb+srv://topher-thompson:Topher^0316@cluster-pldata.ezii8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', ssl_cert_reqs=ssl.CERT_NONE)
         db = client.teams
+        teams_collection = db["2021-2022"]
+        teams_collection.drop
         teams_collection = db["2021-2022"]
         personDocument = {
           "team": team_name,
