@@ -13,11 +13,15 @@ def update_fixture_tracker():
 
     f = open("fixtures.json",'w')  # write in text mode
     url = "https://api-football-v1.p.rapidapi.com/v3/fixtures"
+
+    querystring = {"league":"39","season":"2021"}
+
     headers = {
         'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
         'x-rapidapi-key': pl_data_api
         }
-    querystring = {"league":"39","season":"2021"}
+
+
     fixture_data = requests.request("GET", url, headers=headers, params=querystring).text
     f.write(fixture_data)
     f.close()
