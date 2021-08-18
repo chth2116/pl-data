@@ -107,7 +107,7 @@ def update_player_list():
         client = MongoClient('mongodb+srv://topher-thompson:Topher^0316@cluster-pldata.ezii8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', ssl_cert_reqs=ssl.CERT_NONE)
         db = client.teams
         teams_collection = db["2021-2022"]
-        teams_collection.drop
+        teams_collection.drop()
         teams_collection = db["2021-2022"]
         personDocument = {
           "team": team_name,
