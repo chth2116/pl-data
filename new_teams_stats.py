@@ -23,7 +23,7 @@ def update_team_list():
         }
 
     teams = requests.request("GET", url, headers=headers, params=querystring).text
-    print(teams['response'])
+    print(teams)
     f.write(teams)
     f.close()
 
