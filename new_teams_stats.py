@@ -101,7 +101,7 @@ def update_player_list():
             #
             player_dict = {}
             player_dict['name'] = player['player']['name']
-            player_dict['stats'] = player['player']['statistics']
+            player_dict['stats'] = player['statistics']
             player_list.append(player_dict)
 
         client = MongoClient('mongodb+srv://topher-thompson:Topher^0316@cluster-pldata.ezii8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', ssl_cert_reqs=ssl.CERT_NONE)
