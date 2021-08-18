@@ -68,9 +68,9 @@ def fixture_data_to_mongodb(fixture_data_list):
 
     client = MongoClient('mongodb+srv://topher-thompson:Topher^0316@cluster-pldata.ezii8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', ssl_cert_reqs=ssl.CERT_NONE)
     db = client.fixtureData
-    fixtures_collection = db["2020-2021"]
+    fixtures_collection = db["2021-2022"]
     fixtures_collection.drop()
-    fixtures_collection = db["2020-2021"]
+    fixtures_collection = db["2021-2022"]
 
     for fixture in fixture_data_list:
 

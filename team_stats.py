@@ -34,7 +34,7 @@ def update_player_list():
     # push team and player list of stats to db
     for team in teams:
 
-        url = "https://api-football-v1.p.rapidapi.com/v2/players/squad/"+str(team["team_id"])+"/2020-2021"
+        url = "https://api-football-v1.p.rapidapi.com/v2/players/squad/"+str(team["team_id"])+"/2021-2022"
         headers = {
             'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
             'x-rapidapi-key': pl_data_api
@@ -48,7 +48,7 @@ def update_player_list():
         #
         # client = MongoClient('mongodb+srv://topher-thompson:Topher^0316@cluster-pldata.ezii8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', ssl_cert_reqs=ssl.CERT_NONE)
         # db = client.teams
-        # teams_collection = db["2020-2021"]
+        # teams_collection = db["2021-2022"]
         #
         # personDocument = {
         #   "team": team_name,
@@ -64,7 +64,7 @@ def update_player_list():
         # player_data_list = []
         player_list = []
         for player in player_data:
-            url = "https://api-football-v1.p.rapidapi.com/v2/players/player/"+str(player['player_id'])+"/2020-2021"
+            url = "https://api-football-v1.p.rapidapi.com/v2/players/player/"+str(player['player_id'])+"/2021-2022"
             headers = {
                 'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
                 'x-rapidapi-key': pl_data_api
@@ -82,7 +82,7 @@ def update_player_list():
 
         client = MongoClient('mongodb+srv://topher-thompson:Topher^0316@cluster-pldata.ezii8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', ssl_cert_reqs=ssl.CERT_NONE)
         db = client.teams
-        teams_collection = db["2020-2021"]
+        teams_collection = db["2021-2022"]
         personDocument = {
           "team": team_name,
           "player": player_list
@@ -112,7 +112,7 @@ def update_player_list():
         #
         # client = MongoClient('mongodb+srv://topher-thompson:Topher^0316@cluster-pldata.ezii8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', ssl_cert_reqs=ssl.CERT_NONE)
         # db = client.teams
-        # teams_collection = db["2020-2021"]
+        # teams_collection = db["2021-2022"]
         #
         # personDocument = {
         #   "team": team_name,
