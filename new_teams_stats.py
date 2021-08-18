@@ -18,7 +18,7 @@ def update_team_list():
     querystring = {"id":"33", "league":"39"}
 
     headers = {
-        'x-rapidapi-key': "e7b358e304msh801d4f6823af534p1fe851jsn91d5039ce9cc",
+        'x-rapidapi-key': pl_data_api,
         'x-rapidapi-host': "api-football-v1.p.rapidapi.com"
         }
 
