@@ -39,7 +39,7 @@ def update_player_list():
     # create for loop through each team, grab every player from each team, create list of each players stats
     # push team and player list of stats to db
     for team in teams:
-        print(str(team['id']))
+        print(str(team['team']['id']))
 
         # url = "https://api-football-v1.p.rapidapi.com/v3/players"
         #
