@@ -12,13 +12,13 @@ pl_data_api = os.environ.get("pl_data_key")
 def update_fixture_tracker():
 
     f = open("fixtures.json",'w')  # write in text mode
-    url = "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/2790"
+    url = "https://api-football-v1.p.rapidapi.com/v2/fixtures"
     headers = {
         'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
         'x-rapidapi-key': pl_data_api
         }
-
-    fixture_data = requests.request("GET", url, headers=headers).text
+    querystring = {"league":"2790","season":"2021"}
+    fixture_data = requests.request("GET", url, headers=headers, params=querystring).text
     f.write(fixture_data)
     f.close()
 
@@ -68,9 +68,9 @@ def fixture_data_to_mongodb(fixture_data_list):
 
     client = MongoClient('mongodb+srv://topher-thompson:Topher^0316@cluster-pldata.ezii8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', ssl_cert_reqs=ssl.CERT_NONE)
     db = client.fixtureData
-    fixtures_collection = db["2022-2022"]
+    fixtures_collection = db["2021-2022"]
     fixtures_collection.drop()
-    fixtures_collection = db["2022-2022"]
+    fixtures_collection = db["2021-2022"]
 
     for fixture in fixture_data_list:
 
