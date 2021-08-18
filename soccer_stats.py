@@ -36,7 +36,7 @@ def create_fixture_data_struct():
     fixtures = dict_of_countries['response']
 
     for fixture in fixtures:
-        home_score=fixture[goals[home]]
+        home_score=fixture['goals']['home']
         if str(home_score).lower() =="none":
             continue
         away_score=fixture['goalsAwayTeam']
