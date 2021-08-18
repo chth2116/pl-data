@@ -35,21 +35,34 @@ def update_player_list():
 
     # teams = '33'
     teams = dict_of_teams['response']
-    print(teams)
+    #print(teams)
     # create for loop through each team, grab every player from each team, create list of each players stats
     # push team and player list of stats to db
-#     for team in teams:
-#
-#         url = "https://api-football-v1.p.rapidapi.com/v2/players/squad/"+str(team["team_id"])+"/2021-2022"
-#         headers = {
-#             'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
-#             'x-rapidapi-key': pl_data_api
-#             }
-#         team_name = team["name"]
-#         print(team_name)
-#
-#
-#         player_data = json.loads(requests.request("GET", url, headers=headers).text)['api']['players']
+    for team in teams:
+        print(str(team['id']))
+
+        # url = "https://api-football-v1.p.rapidapi.com/v3/players"
+        #
+        # querystring = {"team":str(team['id']),"season":"2020"}
+        #
+        # headers = {
+        #     'x-rapidapi-key': "e7b358e304msh801d4f6823af534p1fe851jsn91d5039ce9cc",
+        #     'x-rapidapi-host': "api-football-v1.p.rapidapi.com"
+        #     }
+        #
+        # player_data = json.loads(requests.request("GET", url, headers=headers, params=querystring).text)
+
+##
+        # url = "https://api-football-v1.p.rapidapi.com/v2/players/squad/"+str(team["team_id"])+"/2021-2022"
+        # headers = {
+        #     'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
+        #     'x-rapidapi-key': pl_data_api
+        #     }
+        # team_name = team["name"]
+        # print(team_name)
+        #
+        #
+        # player_data = json.loads(requests.request("GET", url, headers=headers).text)['api']['players']
 #         # print(player_data)
 #         #
 #         # client = MongoClient('mongodb+srv://topher-thompson:Topher^0316@cluster-pldata.ezii8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', ssl_cert_reqs=ssl.CERT_NONE)
