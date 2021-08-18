@@ -54,7 +54,7 @@ def update_player_list():
         print(team_name)
 
         player_data = json.loads(requests.request("GET", url, headers=headers, params=querystring).text)['response']
-        # print(player_data)
+        print(player_data)
 
 ##
         # url = "https://api-football-v1.p.rapidapi.com/v2/players/squad/"+str(team["team_id"])+"/2021-2022"
