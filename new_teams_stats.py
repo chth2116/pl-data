@@ -23,20 +23,21 @@ def update_team_list():
         }
 
     teams = requests.request("GET", url, headers=headers, params=querystring).text
-    print(teams['response'])
+    # print(teams['response'])
     f.write(teams)
     f.close()
 
-# def update_player_list():
-#     team_data_list = []
-#
-#     with open('teams.json') as f:
-#         dict_of_teams = json.load(f)
-#
-#     # teams = '33'
-#     teams = dict_of_teams['api']['teams']
-#     # create for loop through each team, grab every player from each team, create list of each players stats
-#     # push team and player list of stats to db
+def update_player_list():
+    team_data_list = []
+
+    with open('teams.json') as f:
+        dict_of_teams = json.load(f)
+
+    # teams = '33'
+    teams = dict_of_teams['response']
+    print(teams)
+    # create for loop through each team, grab every player from each team, create list of each players stats
+    # push team and player list of stats to db
 #     for team in teams:
 #
 #         url = "https://api-football-v1.p.rapidapi.com/v2/players/squad/"+str(team["team_id"])+"/2021-2022"
@@ -124,10 +125,10 @@ def update_team_list():
 #         #   "players": player_data_list
 #         # }
 #         # teams_collection.insert_one(personDocument)
-#
-#
-#
-#
+# #
+# #
+# #
+# #
 def main():
     update_team_list()
     # update_player_list()
