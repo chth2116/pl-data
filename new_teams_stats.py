@@ -30,7 +30,7 @@ def update_team_list():
 def update_player_list():
     team_data_list = []
 
-    with open('teams.json') as f:
+    with open('new_teams.json') as f:
         dict_of_teams = json.load(f)
 
     # teams = '33'
