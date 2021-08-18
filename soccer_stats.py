@@ -44,11 +44,11 @@ def create_fixture_data_struct():
             continue
 
         fixture_data_dict = {}
-        fixture_data_dict['home team'] = fixture['homeTeam']['team_name']
-        fixture_data_dict['away team'] = fixture['awayTeam']['team_name']
+        fixture_data_dict['home team'] = fixture['teams']['home']['name']
+        fixture_data_dict['away team'] = fixture['teams']['away']['name']
         fixture_data_dict['home goals'] = home_score
         fixture_data_dict['away goals'] = away_score
-        fixture_data_dict['timestamp'] = fixture['event_date']
+        fixture_data_dict['timestamp'] = fixture['date']
         fixture_data_list.append(fixture_data_dict)
 
     return fixture_data_list
