@@ -18,8 +18,8 @@ def update_team_list():
     querystring = {"id":"33", "league":"39"}
 
     headers = {
-        'x-rapidapi-key': pl_data_api,
-        'x-rapidapi-host': "api-football-v1.p.rapidapi.com"
+        'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
+        'x-rapidapi-key': pl_data_api
         }
 
     teams = requests.request("GET", url, headers=headers, params=querystring).text
