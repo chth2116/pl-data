@@ -36,7 +36,6 @@ def create_fixture_data_struct():
     fixtures = dict_of_countries['response']
 
     for fixture in fixtures:
-        print(fixture)
         home_score=fixture['goals']['home']
         if str(home_score).lower() =="none":
             continue
@@ -49,7 +48,7 @@ def create_fixture_data_struct():
         fixture_data_dict['away team'] = fixture['teams']['away']['name']
         fixture_data_dict['home goals'] = home_score
         fixture_data_dict['away goals'] = away_score
-        fixture_data_dict['timestamp'] = fixture['date']
+        fixture_data_dict['timestamp'] = fixture['fixture']['date']
         fixture_data_list.append(fixture_data_dict)
 
     return fixture_data_list
