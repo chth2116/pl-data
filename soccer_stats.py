@@ -12,7 +12,7 @@ pl_data_api = os.environ.get("pl_data_key")
 def update_fixture_tracker():
 
     f = open("fixtures.json",'w')  # write in text mode
-    url = "https://api-football-v1.p.rapidapi.com/v2/fixtures"
+    url = "https://api-football-v1.p.rapidapi.com/v3/fixtures"
     headers = {
         'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
         'x-rapidapi-key': pl_data_api
