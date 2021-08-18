@@ -17,7 +17,7 @@ def update_fixture_tracker():
         'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
         'x-rapidapi-key': pl_data_api
         }
-    querystring = {"league":"2790","season":"2021"}
+    querystring = {"league":"39","season":"2021"}
     fixture_data = requests.request("GET", url, headers=headers, params=querystring).text
     f.write(fixture_data)
     f.close()
