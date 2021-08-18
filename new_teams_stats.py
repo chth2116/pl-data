@@ -127,9 +127,9 @@ def update_team_list():
 #
 #
 #
-# def main():
-#     update_team_list()
-#     update_player_list()
-#
-# if __name__ == '__main__':
-#     main()
+def main():
+    update_team_list()
+    # update_player_list()
+
+if __name__ == '__main__':
+    main()
