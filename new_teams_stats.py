@@ -48,7 +48,7 @@ def update_player_list():
 
         url = "https://api-football-v1.p.rapidapi.com/v3/players"
 
-        querystring = {"team":str(team['team']['id']),"season":"2021"}
+        querystring = {"team":str(team['team']['id']),"season":"2020"}
 
         headers = {
             'x-rapidapi-key': "e7b358e304msh801d4f6823af534p1fe851jsn91d5039ce9cc",
