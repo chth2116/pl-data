@@ -131,7 +131,7 @@ def update_player_list():
 # #
 def main():
     update_team_list()
-    # update_player_list()
+    update_player_list()
 
 if __name__ == '__main__':
     main()
