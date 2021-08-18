@@ -54,7 +54,7 @@ def update_player_list():
         print(team_name)
 
         player_data = json.loads(requests.request("GET", url, headers=headers, params=querystring).text)['response']
-        print(player_data)
+        # print(player_data)
 
 ##
         # url = "https://api-football-v1.p.rapidapi.com/v2/players/squad/"+str(team["team_id"])+"/2021-2022"
@@ -87,6 +87,7 @@ def update_player_list():
         # player_data_list = []
         player_list = []
         for player in player_data:
+            print(player['player']['name'])
             # url = "https://api-football-v1.p.rapidapi.com/v2/players/player/"+str(player['player_id'])+"/2021-2022"
             # headers = {
             #     'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
