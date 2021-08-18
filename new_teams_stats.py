@@ -34,8 +34,8 @@ def update_player_list():
         dict_of_teams = json.load(f)
 
     # teams = '33'
-    teams = dict_of_teams
-    print(dict_of_teams)
+    teams = dict_of_teams['response']
+    print(teams)
     # create for loop through each team, grab every player from each team, create list of each players stats
     # push team and player list of stats to db
 #     for team in teams:
