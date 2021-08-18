@@ -20,7 +20,7 @@ def update_team_list():
 
     url = "https://api-football-v1.p.rapidapi.com/v3/teams"
 
-    querystring = {"league":"39","season":"2021"}
+    querystring = {"league":"39","season":"2020"}
 
     headers = {
         'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
