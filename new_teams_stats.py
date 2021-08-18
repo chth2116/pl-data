@@ -50,7 +50,10 @@ def update_player_list():
             'x-rapidapi-host': "api-football-v1.p.rapidapi.com"
             }
 
-        player_data = json.loads(requests.request("GET", url, headers=headers, params=querystring).text)
+        team_name = team['team']['name']
+        print(team_name)
+
+        player_data = json.loads(requests.request("GET", url, headers=headers, params=querystring).text)['response']
         print(player_data)
 
 ##
