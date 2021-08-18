@@ -39,7 +39,7 @@ def create_fixture_data_struct():
         home_score=fixture['goals']['home']
         if str(home_score).lower() =="none":
             continue
-        away_score=fixture['goalsAwayTeam']
+        away_score=fixture['goals']['away']
         if str(away_score).lower() == "none":
             continue
 
