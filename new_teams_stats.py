@@ -21,7 +21,7 @@ def update_team_list():
         'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
         'x-rapidapi-key': pl_data_api
         }
-    print(teams)
+    print("hello")
     teams = requests.request("GET", url, headers=headers, params=querystring).text
     f.write(teams)
     f.close()
