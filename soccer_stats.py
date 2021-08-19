@@ -94,14 +94,19 @@ def fixture_data_to_mongodb(fixture_data_list):
     fixtures_collection.drop()
     fixtures_collection = db["2021-2022"]
 
+for fixture in fixture_data_list:
     fixture_document = {
-        "fixture": fixture,
+        "Home Team": fixture['home team'],
+        "Away Team": fixture['away team'],
+        "Home Score": fixture['home goals'],
+        "Away Score": fixture['away goals'],
+        "Timestamp" = fixture['timestamp'],
         "fixture stats": fixture_stats[i]
     }
     i = i + 1
     # for fixture in fixture_data_list:
     #
-    #     fixtures_collection.insert_one(fixture)
+    fixtures_collection.insert_one(fixture_document)
 
 def main():
     #Change this variable to 'false' if there have been no new fixture results
