@@ -86,7 +86,7 @@ def fixture_data_to_csv(fixture_data_list):
     # print(fixture_data_list)
 
 i = 0
-def fixture_data_to_mongodb(fixture_data_list):
+def fixture_data_to_mongodb(fixture_data_list, fixture_stats):
 
     client = MongoClient('mongodb+srv://topher-thompson:Topher^0316@cluster-pldata.ezii8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', ssl_cert_reqs=ssl.CERT_NONE)
     db = client.fixtureData
@@ -115,8 +115,8 @@ def main():
         update_fixture_tracker()
 
     fixture_data_list, fixture_stats = create_fixture_data_struct()
-    fixture_data_to_csv(fixture_data_list)
-    fixture_data_to_mongodb(fixture_data_list)
+    # fixture_data_to_csv(fixture_data_list)
+    fixture_data_to_mongodb(fixture_data_list, fixture_stats)
 
 if __name__ == '__main__':
     main()
