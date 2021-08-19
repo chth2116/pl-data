@@ -102,7 +102,7 @@ def fixture_data_to_mongodb(fixture_data_list, fixture_stats):
             "Home Score": fixture['home goals'],
             "Away Score": fixture['away goals'],
             "Timestamp": fixture['timestamp'],
-            "fixture stats": fixture_stats[i]['response']
+            "fixture stats": fixture_stats[i]['response']['fixture']
         }
         i = i + 1
         # for fixture in fixture_data_list:
