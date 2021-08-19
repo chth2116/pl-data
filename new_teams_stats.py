@@ -60,7 +60,7 @@ def update_player_list():
         print(team_name)
 
         player_data = json.loads(requests.request("GET", url, headers=headers, params=querystring1).text)['response']
-        player_data.append(json.loads(requests.request("GET", url, headers=headers, params=querystring2).text)['response'])
+        player_data2 = json.loads(requests.request("GET", url, headers=headers, params=querystring2).text)['response']
         print(player_data)
 
 ##
@@ -111,6 +111,23 @@ def update_player_list():
             player_dict['stats'] = player['statistics']
             player_list.append(player_dict)
 
+        for player2 in player_data2:
+            print(player['player']['name'])
+            # url = "https://api-football-v1.p.rapidapi.com/v2/players/player/"+str(player['player_id'])+"/2021-2022"
+            # headers = {
+            #     'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
+            #     'x-rapidapi-key': pl_data_api
+            #     }
+            # player_stats_response = json.loads(requests.request("GET", url, headers=headers).text)['api']['players']
+            # print(player_stats_response)
+            #
+            #
+            #
+            #
+            player_dict = {}
+            player_dict['name'] = player2['player']['name']
+            player_dict['stats'] = player2['statistics']
+            player_list.append(player_dict)
         # client = MongoClient('mongodb+srv://topher-thompson:Topher^0316@cluster-pldata.ezii8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', ssl_cert_reqs=ssl.CERT_NONE)
         # db = client.teams
         # teams_collection = db["2021-2022"]
