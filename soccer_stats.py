@@ -95,7 +95,7 @@ def fixture_data_to_mongodb(fixture_data_list, fixture_stats):
     fixtures_collection = db["2021-2022"]
     i = 0
     for fixture in fixture_data_list:
-        i = i + 1
+
         fixture_document = {
             "Home Team": fixture['home team'],
             "Away Team": fixture['away team'],
@@ -104,7 +104,7 @@ def fixture_data_to_mongodb(fixture_data_list, fixture_stats):
             "Timestamp": fixture['timestamp'],
             "fixture stats": fixture_stats[i]
         }
-
+        i = i + 1
         # for fixture in fixture_data_list:
         #
         fixtures_collection.insert_one(fixture_document)
