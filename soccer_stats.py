@@ -103,7 +103,7 @@ def fixture_data_to_mongodb(fixture_data_list, fixture_stats):
             "Timestamp": fixture['timestamp'],
             "fixture stats": fixture_stats[i]
         }
-        i = i + 1
+    i = i + 1
         # for fixture in fixture_data_list:
         #
         fixtures_collection.insert_one(fixture_document)
