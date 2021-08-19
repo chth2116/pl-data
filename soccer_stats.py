@@ -100,7 +100,7 @@ for fixture in fixture_data_list:
         "Away Team": fixture['away team'],
         "Home Score": fixture['home goals'],
         "Away Score": fixture['away goals'],
-        "Timestamp" = fixture['timestamp'],
+        "Timestamp": fixture['timestamp'],
         "fixture stats": fixture_stats[i]
     }
     i = i + 1
