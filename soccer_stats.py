@@ -7,6 +7,7 @@ import datetime
 import pandas as pd
 import os
 
+# fixtures_stats = {}
 pl_data_api = os.environ.get("pl_data_key")
 
 def update_fixture_tracker():
@@ -26,6 +27,7 @@ def update_fixture_tracker():
     f.write(fixture_data)
     f.close()
 
+
 def create_fixture_data_struct():
 
     fixture_data_list = []
@@ -34,6 +36,7 @@ def create_fixture_data_struct():
         dict_of_countries = json.load(f)
 
     fixtures = dict_of_countries['response']
+    fixture_stats = {}
 
     for fixture in fixtures:
         home_score=fixture['goals']['home']
@@ -51,6 +54,20 @@ def create_fixture_data_struct():
         fixture_data_dict['timestamp'] = fixture['fixture']['date']
         fixture_data_list.append(fixture_data_dict)
 
+    url = "https://api-football-v1.p.rapidapi.com/v3/fixtures"
+
+    querystring = {"id":str(fixture['fixture']['id']),"league":"39","season":"2021"}
+
+    headers = {
+        'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
+        'x-rapidapi-key': pl_data_api
+        }
+
+
+    fixture_stats = json.loads(requests.request("GET", url, headers=headers, params=querystring).text)
+
+    print(fixture_stats)
+
     return fixture_data_list
 
 def fixture_data_to_csv(fixture_data_list):
@@ -65,7 +82,7 @@ def fixture_data_to_csv(fixture_data_list):
 
     read_file = pd.read_csv (r'fixtures_stats.csv')
     read_file.to_excel (r'fixtures_stats.xlsx', index = None, header=True)
-    print(fixture_data_list)
+    # print(fixture_data_list)
 
 
 def fixture_data_to_mongodb(fixture_data_list):
