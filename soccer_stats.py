@@ -69,7 +69,7 @@ def create_fixture_data_struct():
 
     print(fixture_stats)
 
-    return fixture_data_list
+    return fixture_data_list, fixture_stats
 
 def fixture_data_to_csv(fixture_data_list):
 
@@ -85,7 +85,7 @@ def fixture_data_to_csv(fixture_data_list):
     read_file.to_excel (r'fixtures_stats.xlsx', index = None, header=True)
     # print(fixture_data_list)
 
-
+i = 0
 def fixture_data_to_mongodb(fixture_data_list):
 
     client = MongoClient('mongodb+srv://topher-thompson:Topher^0316@cluster-pldata.ezii8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', ssl_cert_reqs=ssl.CERT_NONE)
@@ -94,9 +94,14 @@ def fixture_data_to_mongodb(fixture_data_list):
     fixtures_collection.drop()
     fixtures_collection = db["2021-2022"]
 
-    for fixture in fixture_data_list:
-
-        fixtures_collection.insert_one(fixture)
+    fixture_document = {
+        "fixture": fixture,
+        "fixture stats": fixture_stats[i]
+    }
+    i = i + 1
+    # for fixture in fixture_data_list:
+    #
+    #     fixtures_collection.insert_one(fixture)
 
 def main():
     #Change this variable to 'false' if there have been no new fixture results
@@ -104,7 +109,7 @@ def main():
     if call_api.lower() == 'true':
         update_fixture_tracker()
 
-    fixture_data_list = create_fixture_data_struct()
+    fixture_data_list, fixture_stats = create_fixture_data_struct()
     fixture_data_to_csv(fixture_data_list)
     fixture_data_to_mongodb(fixture_data_list)
 
