@@ -36,7 +36,7 @@ def create_fixture_data_struct():
         dict_of_countries = json.load(f)
 
     fixtures = dict_of_countries['response']
-    fixture_stats = {}
+    fixture_stats = []
 
     for fixture in fixtures:
         home_score=fixture['goals']['home']
@@ -64,7 +64,8 @@ def create_fixture_data_struct():
             }
 
 
-        fixture_stats = json.loads(requests.request("GET", url, headers=headers, params=querystring).text)
+        fixture_stat = json.loads(requests.request("GET", url, headers=headers, params=querystring).text)
+        fixture_stats.append(fixture_stat)
 
     print(fixture_stats)
 
