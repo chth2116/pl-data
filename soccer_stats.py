@@ -54,17 +54,17 @@ def create_fixture_data_struct():
         fixture_data_dict['timestamp'] = fixture['fixture']['date']
         fixture_data_list.append(fixture_data_dict)
 
-    url = "https://api-football-v1.p.rapidapi.com/v3/fixtures"
+        url = "https://api-football-v1.p.rapidapi.com/v3/fixtures"
 
-    querystring = {"id":str(fixture['fixture']['id']),"league":"39","season":"2021"}
+        querystring = {"id":str(fixture['fixture']['id'])}
 
-    headers = {
-        'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
-        'x-rapidapi-key': pl_data_api
-        }
+        headers = {
+            'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
+            'x-rapidapi-key': pl_data_api
+            }
 
 
-    fixture_stats = json.loads(requests.request("GET", url, headers=headers, params=querystring).text)
+        fixture_stats = json.loads(requests.request("GET", url, headers=headers, params=querystring).text)
 
     print(fixture_stats)
 
